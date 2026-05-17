@@ -2,78 +2,33 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Receitas</title>
+    <title>Usuários de Teste via REST</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body { background-color: #ffeb3b; } /* Cor amarela do fundo */
-        .card { height: 100%; border: none; border-radius: 5px; }
-        .card-img-top { height: 200px; object-fit: cover; }
-        .card-title { font-weight: bold; margin-top: 10px; }
-        .ingredients-list { font-size: 0.9rem; padding-left: 20px; }
-        hr { margin: 15px 0; }
+        body { background-color: #ffc107; } /* Amarelo do fundo */
+        .card { border: none; border-radius: 8px; margin-bottom: 20px; }
+        .card-img-top { padding: 10px; border-radius: 15px; }
+        .user-name { font-weight: bold; margin-bottom: 5px; }
+        .user-email { font-size: 0.9rem; color: #555; }
     </style>
 </head>
-<body>
+<body class="p-4">
 
-<div class="container py-4">
-    <h1 class="mb-4">Catálogo de Receitas</h1>
-    
-    <div class="row">
-        <div class="col-md-4 mb-4">
-            <div class="card shadow-sm">
-                <img src="https://via.placeholder.com/350x200?text=Arroz+de+Couve-Flor" class="card-img-top" alt="Arroz de Couve-Flor">
-                <div class="card-body">
-                    <h4 class="card-title">Arroz de Couve-Flor</h4>
-                    <ul class="ingredients-list">
-                        <li>Arroz</li>
-                        <li>Couve-Flor</li>
-                        <li>Cebola Média</li>
-                        <li>Azeite</li>
-                    </ul>
-                    <hr>
-                    <p class="card-text">Deixe a couve-flor picada. Adicione os ingredientes e refogue bem. Adicione sal, tampe a panela e deixe cozinhar.</p>
-                </div>
+    <div class="container">
+        <h1 class="display-5">Usuários de Teste via REST</h1>
+        <p class="text-white font-italic">Os usuários deste exemplo são fornecidos pela API de testes reqres.in</p>
+        
+        <div id="usuarios" class="row">
             </div>
-        </div>
-
-        <div class="col-md-4 mb-4">
-            <div class="card shadow-sm">
-                <img src="https://via.placeholder.com/350x200?text=Bolo+de+Café" class="card-img-top" alt="Bolo de Café">
-                <div class="card-body">
-                    <h4 class="card-title">Bolo de Café</h4>
-                    <ul class="ingredients-list">
-                        <li>Farinha de Trigo</li>
-                        <li>Açúcar</li>
-                        <li>Café Coado</li>
-                        <li>Chocolate em Pó</li>
-                        <li>Ovos</li>
-                    </ul>
-                    <hr>
-                    <p class="card-text">Bata o açúcar, as gemas e o café. Adicione farinha e chocolate e mexa bem. Bata as claras e junte à mistura.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 mb-4">
-            <div class="card shadow-sm">
-                <img src="https://via.placeholder.com/350x200?text=Coxinha+de+Brigadeiro" class="card-img-top" alt="Coxinha de Brigadeiro">
-                <div class="card-body">
-                    <h4 class="card-title">Coxinha de Brigadeiro</h4>
-                    <ul class="ingredients-list">
-                        <li>Leite Condensado</li>
-                        <li>Chocolate em Pó</li>
-                        <li>Manteiga</li>
-                        <li>Morango</li>
-                        <li>Chocolate Granulado</li>
-                    </ul>
-                    <hr>
-                    <p class="card-text">Junte o leite condensado, chocolate em pó e manteiga. Aqueça no fogo baixo. Envolva os morangos e passe no granulado.</p>
-                </div>
-            </div>
-        </div>
     </div>
-</div>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="usuarios.js"></script>
+    <script>
+        // Ao carregar a página, executa a carga de usuários
+        $(document).ready(function() {
+            loadUsers();
+        });
+    </script>
 </body>
 </html>
