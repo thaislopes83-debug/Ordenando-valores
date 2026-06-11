@@ -1,0 +1,82 @@
+// Definição da interface para tipagem do Livro
+interface Livro {
+    id: number;
+    titulo: string;
+    resumo: string;
+    editora: string;
+    autores: string[];
+}
+
+// Dados mocados idênticos aos da imagem fornecida
+const livrosIniciais: Livro[] = [
+    {
+        id: 1,
+        titulo: "Use a Cabeça: Java",
+        resumo: "Use a Cabeça! Java é uma experiência completa de aprendizado em programação orientada a objetos (OO) e Java.",
+        editora: "Alta Books",
+        autores: ["Bert Bates", "Kathy Sierra"]
+    },
+    {
+        id: 2,
+        titulo: "Java, como Programar",
+        resumo: "Milhões de alunos e profissionais aprenderam programação e desenvolvimento de software com os livros Deitel",
+        editora: "Pearson",
+        autores: ["Paul Deitel", "Harvey Deitel"]
+    }
+];
+
+class CatalogManager {
+    private containerTabela: HTMLTableSectionElement;
+    private listaLivros: Livro[];
+
+    constructor(targetId: string, dadosIniciais: Livro[]) {
+        this.containerTabela = document.getElementById(targetId) as HTMLTableSectionElement;
+        this.listaLivros = dadosIniciais;
+        this.renderizar();
+    }
+
+    // Função para renderizar as linhas da tabela baseado no estado atual
+    public renderizar(): void {
+        if (!this.containerTabela) return;
+        
+        this.containerTabela.innerHTML = "";
+
+        this.listaLivros.forEach(livro => {
+            const tr = document.createElement("tr");
+
+            // Criando a estrutura interna da linha usando Template Literals
+            tr.innerHTML = `
+                <td>
+                    <div class="title-cell">
+                        <span>${livro.titulo}</span>
+                        <button class="btn-delete" data-id="${livro.id}">Excluir</button>
+                    </div>
+                </td>
+                <td>${livro.resumo}</td>
+                <td>${livro.editora}</td>
+                <td>
+                    <ul class="authors-list">
+                        ${livro.autores.map(autor => `<li>${autor}</li>`).join('')}
+                    </ul>
+                </td>
+            `;
+
+            // Vinculando o evento de clique ao botão Excluir criado
+            const botaoExcluir = tr.querySelector(".btn-delete") as HTMLButtonElement;
+            botaoExcluir.addEventListener("click", () => this.excluirLivro(livro.id));
+
+            this.containerTabela.appendChild(tr);
+        });
+    }
+
+    // Função para remover o livro da lista e atualizar a tela
+    private excluirLivro(id: number): void {
+        this.listaLivros = this.listaLivros.filter(livro => livro.id !== id);
+        this.renderizar();
+    }
+}
+
+// Inicializa a aplicação assim que o DOM estiver pronto
+document.addEventListener("DOMContentLoaded", () => {
+    new CatalogManager("books-list", livrosIniciais);
+});
