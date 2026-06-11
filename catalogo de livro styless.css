@@ -1,0 +1,90 @@
+/* Reset global simples */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #212529;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #111111;
+}
+
+/* Estilização da Tabela */
+.books-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+/* Cabeçalho Escuro */
+.books-table th {
+    background-color: #212529;
+    color: #ffffff;
+    text-align: left;
+    padding: 12px 16px;
+    font-weight: 400;
+}
+
+.books-table td {
+    padding: 16px;
+    vertical-align: top;
+    line-height: 1.5;
+}
+
+/* Efeito de cores alternadas nas linhas (Zebra) */
+.books-table tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+.books-table tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+/* Estilo do bloco de Título + Botão */
+.title-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+/* Botão Excluir Vermelho */
+.btn-delete {
+    background-color: #dc3545;
+    color: #ffffff;
+    border: none;
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-delete:hover {
+    background-color: #bd2130;
+}
+
+/* Lista de Autores */
+.authors-list {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.authors-list li {
+    margin-bottom: 4px;
+}
