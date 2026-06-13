@@ -1,0 +1,167 @@
+/* Reset global e paleta de cores do MongoDB */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #1f2c33; /* Cor simulando o fundo do dashboard */
+    height: 100vh;
+}
+
+/* Simulação do botão de abertura no fundo */
+.dashboard-mock {
+    padding: 20px;
+}
+
+.btn-primary {
+    background-color: #00684a;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Overlay (Fundo escuro borrado/esmaecido) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(31, 44, 51, 0.7); /* Efeito translúcido escuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 999;
+}
+
+/* Classe ativa para exibir o modal */
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Card do Modal */
+.modal-card {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+    padding: 32px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+/* Botão Fechar X */
+.modal-close-x {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #4c5e66;
+    cursor: pointer;
+}
+
+.modal-title {
+    font-size: 24px;
+    color: #1c2d35;
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+/* Grupos do Formulário */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #4c5e66;
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #8899a6;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #1c2d35;
+    outline: none;
+}
+
+/* Foco Azul do campo selecionado na imagem */
+.form-group input.input-focus-blue {
+    border-color: #00a3e0;
+    box-shadow: 0 0 0 3px rgba(0, 163, 224, 0.2);
+}
+
+/* Opções Avançadas */
+.advanced-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #4c5e66;
+}
+
+.advanced-options .arrow {
+    font-size: 11px;
+    color: #1c2d35;
+}
+
+.advanced-options .advanced-text strong {
+    color: #1c2d35;
+}
+
+/* Rodapé e Botões */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    border-top: 1px solid #e8eeef;
+    padding-top: 20px;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid #8899a6;
+    color: #4c5e66;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background-color: #f7f9fa;
+}
+
+.btn-success {
+    background-color: #00684a; /* Verde oficial do MongoDB */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-success:hover {
+    background-color: #00593f;
+}
