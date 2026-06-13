@@ -1,0 +1,41 @@
+// Mapeamento dos elementos do DOM
+const modalOverlay = document.getElementById('modalOverlay');
+const btnOpenModal = document.getElementById('btnOpenModal');
+const btnCancel = document.getElementById('btnCancel');
+const btnCloseX = document.getElementById('btnCloseX');
+const form = document.getElementById('createDatabaseForm');
+
+// Função para abrir o modal
+function openModal() {
+    modalOverlay.classList.add('active');
+}
+
+// Função para fechar o modal
+function closeModal() {
+    modalOverlay.classList.remove('active');
+}
+
+// Ouvintes de eventos para fechar/abrir
+btnOpenModal.addEventListener('click', openModal);
+btnCancel.addEventListener('click', closeModal);
+btnCloseX.addEventListener('click', closeModal);
+
+// Fechar se o usuário clicar fora do card branco (no overlay escuro)
+modalOverlay.addEventListener('click', (event) => {
+    if (event.target === modalOverlay) {
+        closeModal();
+    }
+});
+
+// Manipulação do envio do formulário
+form.addEventListener('submit', (event) => {
+    event.preventDefault(); // Impede o recarregamento da página
+    
+    const dbName = document.getElementById('databaseName').value;
+    const collName = document.getElementById('collectionName').value;
+    
+    console.log(`Criando banco de dados: ${dbName} com a collection: ${collName}`);
+    
+    // Fecha o modal após a criação
+    closeModal();
+});
