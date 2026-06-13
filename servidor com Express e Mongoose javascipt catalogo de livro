@@ -1,0 +1,66 @@
+// Dados simulados com base na imagem atualizada
+const livrosIniciais = [
+    {
+        id: 1,
+        titulo: "Core Java for the Impatient",
+        resumo: "Readers familiar with Horstmann's original, two-volume \"Core Java\" books who are looking for a comprehensive, but condensed guide to all of the new features and functions of Java SE 9 will learn how these new features impact the language and core libraries.",
+        editora: "Addison Wesley",
+        autores: ["Cay Horstmann"]
+    }
+];
+
+class CatalogManager {
+    constructor(targetId, dadosIniciais) {
+        this.containerTabela = document.getElementById(targetId);
+        this.listaLivros = dadosIniciais;
+        this.renderizar();
+    }
+
+    renderizar() {
+        if (!this.containerTabela) return;
+        
+        this.containerTabela.innerHTML = "";
+
+        // Se não houver mais livros, exibe uma mensagem amigável
+        if (this.listaLivros.length === 0) {
+            this.containerTabela.innerHTML = `<tr><td colspan="4" style="text-align: center; padding: 20px; color: #777;">Nenhum livro no catálogo.</td></tr>`;
+            return;
+        }
+
+        this.listaLivros.forEach(livro => {
+            const tr = document.createElement("tr");
+
+            tr.innerHTML = `
+                <td>
+                    <div class="title-cell">
+                        <span>${livro.titulo}</span>
+                        <button class="btn-delete" data-id="${livro.id}">Excluir</button>
+                    </div>
+                </td>
+                <td>${livro.resumo}</td>
+                <td>${livro.editora}</td>
+                <td>
+                    <ul class="authors-list">
+                        ${livro.autores.map(autor => `<li>${autor}</li>`).join('')}
+                    </ul>
+                </td>
+            `;
+
+            // Configuração do gatilho de exclusão
+            const botaoExcluir = tr.querySelector(".btn-delete");
+            botaoExcluir.addEventListener("click", () => this.excluirLivro(livro.id));
+
+            this.containerTabela.appendChild(tr);
+        });
+    }
+
+    excluirLivro(id) {
+        this.listaLivros = this.listaLivros.filter(livro => livro.id !== id);
+        this.renderizar();
+    }
+}
+
+// Inicialização imediata após o carregamento da página
+document.addEventListener("DOMContentLoaded", () => {
+    new CatalogManager("books-list", livrosIniciais);
+});
