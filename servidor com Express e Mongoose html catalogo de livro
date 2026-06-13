@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Livros</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-link active">Catálogo</a>
+            <a href="#" class="nav-link">Novo</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1 class="page-title">Catálogo de Livros</h1>
+        
+        <table class="books-table">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Resumo</th>
+                    <th>Editora</th>
+                    <th>Autores</th>
+                </tr>
+            </thead>
+            <tbody id="books-list">
+                </tbody>
+        </table>
+    </main>
+
+    <script src="app.js" defer></script>
+</body>
+</html>
